@@ -1,0 +1,27 @@
+Técnicas TDD para código legacy
+
+✅ Characterization Tests  → documentar comportamiento existente
+✅ Seam                    → identificar puntos de inyección
+✅ Sprout Method           → agregar features con TDD sin tocar legacy
+✅ Extract and Override    → sobreescribir dependencias sin interfaces
+
+¿Necesitas entender qué hace el código?
+    → Characterization Tests
+
+¿Necesitas inyectar una dependencia?
+    → Seam + constructor injection
+
+¿Necesitas agregar una feature nueva?
+    → Sprout Method
+
+¿No puedes agregar interfaces pero necesitas controlar comportamiento?
+    → Extract and Override
+
+    Se puede implementar tambien de la siguiente forma (ver tests/DailyReportGeneratorTest.php)
+
+$generator = $this->getMockBuilder(DailyReportGenerator::class)
+    ->onlyMethods(['getCurrentDate', 'writeFile'])
+    ->getMock();
+
+$generator->method('getCurrentDate')->willReturn('2024-01-01');
+$generator->method('writeFile')->willReturn(true);

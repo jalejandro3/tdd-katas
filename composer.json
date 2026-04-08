@@ -1,0 +1,25 @@
+{
+    "name": "jalejandro/tdd",
+    "description": "TDD practices",
+    "require-dev": {
+        "phpunit/phpunit": "^13.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Jalejandro\\Tdd\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Jalejandro\\tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Jose Alejandro Alvarez Mendoza"
+        }
+    ],
+    "require": {
+      "ext-pdo": "*"
+    }
+}
